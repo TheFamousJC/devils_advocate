@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3SCI DEVIL'S ADVOCATE LAB | Work Hack #6</title>
+  <title>3SCI Devil's Advocate Lab | Work Hack #6</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -13,17 +13,25 @@
       --bg: #f8fafc;
       --card-bg: #ffffff;
       --card-border: #e2e8f0;
-      --accent: #dc2626;
-      --accent-hover: #b91c1c;
-      --accent-subtle: rgba(220, 38, 38, 0.06);
-      --accent-glow: rgba(220, 38, 38, 0.15);
+      --card-border-subtle: #cbd5e1;
+      
+      /* Primary Blues & Slates */
+      --primary: #1e3a8a;
+      --primary-hover: #172554;
+      --primary-blue: #2563eb;
+      --blue-subtle: #eff6ff;
+      
+      /* Subtle Purple / Violet Accents */
+      --accent-purple: #7c3aed;
+      --purple-subtle: #f5f3ff;
+      --indigo: #4f46e5;
+      
+      /* Greys & Neutrals */
       --text: #0f172a;
       --text-secondary: #475569;
       --text-muted: #64748b;
-      --benchmark: #0284c7;
-      --gemini: #16a34a;
-      --warning: #d97706;
-      --dark-header: #0a0f1d;
+      --slate-tag: #f1f5f9;
+      --dark-header: #0f172a;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,7 +48,7 @@
     /* Top Lab Header */
     header {
       background: var(--dark-header);
-      border-bottom: 2px solid #1e293b;
+      border-bottom: 1.5px solid #1e293b;
       padding: 10px 24px;
       display: flex;
       justify-content: space-between;
@@ -56,45 +64,46 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 3px 6px;
-      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 8px;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .brand-logo { height: 32px; width: auto; object-fit: contain; }
+    .brand-logo { height: 30px; width: auto; object-fit: contain; }
     .brand-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 0.5px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: 0.3px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .brand-title span.flame {
-      color: #ef4444;
-      font-size: 19px;
+    .brand-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
     }
 
     .top-api-container {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: #111827;
-      border: 1px solid #374151;
+      background: #1e293b;
+      border: 1px solid #334155;
       padding: 6px 12px;
-      border-radius: 8px;
+      border-radius: 7px;
     }
     .top-api-label {
       font-size: 12px;
       font-weight: 700;
-      color: #4ade80;
+      color: #38bdf8;
       white-space: nowrap;
     }
     .top-api-input {
-      background: #030712;
-      border: 1px solid #4b5563;
+      background: #090e17;
+      border: 1px solid #475569;
       border-radius: 5px;
       color: #fff;
       font-size: 12px;
@@ -102,26 +111,26 @@
       width: 200px;
       outline: none;
     }
-    .top-api-input:focus { border-color: var(--accent); }
-    .top-api-link { font-size: 11px; color: #38bdf8; text-decoration: none; white-space: nowrap; }
+    .top-api-input:focus { border-color: #38bdf8; }
+    .top-api-link { font-size: 11px; color: #93c5fd; text-decoration: none; white-space: nowrap; }
     .top-api-link:hover { text-decoration: underline; }
 
     .header-actions { display: flex; align-items: center; gap: 8px; }
     .btn-action {
-      background: #1f2937;
-      color: #e5e7eb;
-      border: 1px solid #374151;
+      background: #1e293b;
+      color: #e2e8f0;
+      border: 1px solid #334155;
       padding: 8px 14px;
       border-radius: 6px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       transition: all 0.15s ease;
     }
-    .btn-action:hover { background: #374151; border-color: #6b7280; color: #fff; }
+    .btn-action:hover { background: #334155; border-color: #64748b; color: #fff; }
 
     /* Layout */
     .lab-layout {
@@ -146,7 +155,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--card-border);
+      border-bottom: 1.5px solid var(--card-border);
       padding-bottom: 10px;
     }
     .sidebar-title {
@@ -154,10 +163,7 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      color: var(--primary);
     }
 
     .field-group { display: flex; flex-direction: column; gap: 5px; }
@@ -173,7 +179,7 @@
       width: 100%;
       transition: border-color 0.15s;
     }
-    .input-control:focus { border-color: var(--accent); background: #ffffff; }
+    .input-control:focus { border-color: var(--primary-blue); background: #ffffff; }
     textarea.input-control { resize: vertical; min-height: 85px; font-family: inherit; line-height: 1.45; }
 
     /* Adversary Persona Selectors Box */
@@ -190,7 +196,7 @@
     .selector-legend {
       font-size: 11px;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--primary-blue);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -204,40 +210,38 @@
       color: var(--text);
       cursor: pointer;
     }
-    .persona-select:focus { border-color: var(--accent); }
+    .persona-select:focus { border-color: var(--primary-blue); }
 
     /* Action Buttons */
     .btn-generate-ai {
-      background: var(--accent);
+      background: var(--primary);
       color: #ffffff;
       border: none;
       padding: 12px 14px;
       border-radius: 7px;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: background 0.15s ease, transform 0.05s;
+      transition: background 0.15s ease;
       width: 100%;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 12px var(--accent-glow);
+      letter-spacing: 0.3px;
     }
-    .btn-generate-ai:hover { background: var(--accent-hover); }
-    .btn-generate-ai:active { transform: translateY(1px); }
+    .btn-generate-ai:hover { background: var(--primary-hover); }
     .btn-generate-ai:disabled { opacity: 0.6; cursor: not-allowed; }
 
     .btn-generate-prompt {
       background: #f1f5f9;
-      color: var(--benchmark);
+      color: var(--primary-blue);
       border: 1.5px solid #cbd5e1;
       padding: 9px 14px;
       border-radius: 7px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -246,13 +250,13 @@
       width: 100%;
       transition: all 0.15s ease;
     }
-    .btn-generate-prompt:hover { background: #e2e8f0; color: #0369a1; border-color: #94a3b8; }
+    .btn-generate-prompt:hover { background: #e2e8f0; color: var(--primary); }
 
     .prompt-preview-container {
       display: none;
       flex-direction: column;
       gap: 6px;
-      background: #f1f5f9;
+      background: #f8fafc;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
       padding: 10px;
@@ -284,15 +288,15 @@
     /* Confrontation Survival Banner */
     .survival-banner {
       background: #ffffff;
-      border: 2px solid var(--card-border);
-      border-left: 6px solid var(--accent);
+      border: 1.5px solid var(--card-border);
+      border-left: 5px solid var(--primary-blue);
       border-radius: 10px;
       padding: 20px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
     }
     .survival-score-box {
       display: flex;
@@ -304,9 +308,9 @@
     }
     .score-num {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 48px;
+      font-size: 46px;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--primary-blue);
       line-height: 1;
     }
     .score-lbl {
@@ -328,7 +332,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 13.5px;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -353,22 +357,18 @@
       flex-direction: column;
       gap: 12px;
       border-top-width: 4px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-      transition: box-shadow 0.2s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
     }
-    .adversary-card:hover {
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
-    }
-    .adversary-card.slot-1 { border-top-color: #d97706; }
-    .adversary-card.slot-2 { border-top-color: #dc2626; }
-    .adversary-card.slot-3 { border-top-color: #7c3aed; }
-    .adversary-card.slot-4 { border-top-color: #0284c7; }
+    .adversary-card.slot-1 { border-top-color: #3b82f6; }
+    .adversary-card.slot-2 { border-top-color: #6366f1; }
+    .adversary-card.slot-3 { border-top-color: #8b5cf6; }
+    .adversary-card.slot-4 { border-top-color: #0ea5e9; }
 
     .adversary-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1.5px solid #f1f5f9;
+      border-bottom: 1px solid #f1f5f9;
       padding-bottom: 8px;
     }
     .persona-badge {
@@ -376,50 +376,58 @@
       align-items: center;
       gap: 8px;
     }
-    .persona-icon { font-size: 20px; }
+    .persona-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+      display: inline-block;
+    }
+    .slot-1 .persona-bullet { background: #3b82f6; }
+    .slot-2 .persona-bullet { background: #6366f1; }
+    .slot-3 .persona-bullet { background: #8b5cf6; }
+    .slot-4 .persona-bullet { background: #0ea5e9; }
+
     .persona-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px;
-      font-weight: 800;
+      font-size: 14.5px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
+      color: var(--text);
     }
-    .slot-1 .persona-title { color: #b45309; }
-    .slot-2 .persona-title { color: #dc2626; }
-    .slot-3 .persona-title { color: #6d28d9; }
-    .slot-4 .persona-title { color: #0369a1; }
 
     .adversary-role-tag {
       font-size: 10.5px;
-      font-weight: 800;
+      font-weight: 700;
       padding: 3px 8px;
       border-radius: 4px;
       text-transform: uppercase;
       background: #f1f5f9;
-      color: #475569;
+      color: #64748b;
     }
 
     .objection-quote {
       font-size: 13.5px;
-      font-weight: 600;
+      font-weight: 500;
       font-style: italic;
       color: #1e293b;
       background: #f8fafc;
-      border-left: 3px solid #64748b;
+      border-left: 3px solid #cbd5e1;
       padding: 10px 14px;
       border-radius: 4px;
       line-height: 1.45;
     }
-    .slot-1 .objection-quote { border-left-color: #d97706; background: #fffbeb; }
-    .slot-2 .objection-quote { border-left-color: #dc2626; background: #fef2f2; }
-    .slot-3 .objection-quote { border-left-color: #7c3aed; background: #faf5ff; }
-    .slot-4 .objection-quote { border-left-color: #0284c7; background: #f0f9ff; }
+    .slot-1 .objection-quote { border-left-color: #3b82f6; background: #f0f7ff; }
+    .slot-2 .objection-quote { border-left-color: #6366f1; background: #eef2ff; }
+    .slot-3 .objection-quote { border-left-color: #8b5cf6; background: #f5f3ff; }
+    .slot-4 .objection-quote { border-left-color: #0ea5e9; background: #f0f9ff; }
 
     .vulnerability-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 7px;
       font-size: 12.5px;
       color: var(--text-secondary);
     }
@@ -429,12 +437,12 @@
       line-height: 1.4;
     }
     .vulnerability-list li::before {
-      content: "ג•";
+      content: "-";
       position: absolute;
       left: 0;
-      color: var(--accent);
-      font-weight: 800;
-      font-size: 11px;
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 14px;
     }
 
     /* Pitch Fortification Armor Table */
@@ -446,16 +454,16 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
     }
     .fortification-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      border-bottom: 2px solid #f1f5f9;
+      border-bottom: 1.5px solid #f1f5f9;
       padding-bottom: 8px;
     }
     .fortification-table {
@@ -467,11 +475,11 @@
     .fortification-table th {
       background: #f8fafc;
       color: var(--text-secondary);
-      font-weight: 800;
+      font-weight: 700;
       font-size: 11px;
       text-transform: uppercase;
       padding: 10px 12px;
-      border-bottom: 2px solid var(--card-border);
+      border-bottom: 1.5px solid var(--card-border);
     }
     .fortification-table td {
       padding: 10px 12px;
@@ -492,20 +500,20 @@
         <img src="templates/logo_white.png" class="brand-logo" alt="3Sci Logo" onerror="this.src='logo_white.png'; this.onerror=null;">
       </div>
       <div>
-        <div class="brand-title">3SCI DEVIL'S ADVOCATE LAB <span class="flame">נ”¥</span></div>
-        <div style="font-size: 11px; color: #94a3b8;">12-Adversary Confrontation Stress-Testing ג€¢ Work Hack #6</div>
+        <div class="brand-title">3SCI DEVIL'S ADVOCATE LAB</div>
+        <div class="brand-tag">Confrontation Stress-Testing</div>
       </div>
     </div>
 
     <!-- Gemini Key Header Indicator -->
     <div class="top-api-container">
-      <span class="top-api-label">ג¡ Gemini Key:</span>
+      <span class="top-api-label">Gemini Key:</span>
       <input type="password" class="top-api-input" id="top-gemini-key" placeholder="AI Studio Key..." oninput="syncAndSaveKey(this.value)">
-      <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="top-api-link">Get Free Key ג†—</a>
+      <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="top-api-link">Get Free Key</a>
     </div>
 
     <div class="header-actions">
-      <button class="btn-action" onclick="exportFortificationHtml()">נ“„ Export Pitch Armor</button>
+      <button class="btn-action" onclick="exportFortificationHtml()">Export Pitch Armor</button>
     </div>
   </header>
 
@@ -513,12 +521,12 @@
     <!-- Left Configuration Sidebar -->
     <div class="control-sidebar">
       <div class="sidebar-header">
-        <span class="sidebar-title"><span>ג”ן¸</span> Confrontation Setup</span>
-        <button class="btn-action" style="padding:4px 8px; font-size:11px; color:var(--accent);" onclick="resetCleanState()">נ—‘ן¸ Clear</button>
+        <span class="sidebar-title">Confrontation Setup</span>
+        <button class="btn-action" style="padding:4px 8px; font-size:11px; color:#ef4444;" onclick="resetCleanState()">Clear</button>
       </div>
 
       <div class="field-group">
-        <label class="field-label">Idea / Pitch Name</label>
+        <label class="field-label">Idea or Pitch Name</label>
         <input type="text" class="input-control" id="ctrl-title" placeholder="e.g. Paid Monthly Subscriptions for Our Free App">
       </div>
 
@@ -534,7 +542,7 @@
       </div>
 
       <div class="field-group">
-        <label class="field-label">What's the Plan? (Keep it simple)</label>
+        <label class="field-label">What's the Plan? (Plain English)</label>
         <textarea class="input-control" id="ctrl-proposal" placeholder="Explain what you want to do, what it costs, how you make money, and why you think people want it..." oninput="generateCompiledPrompt()"></textarea>
       </div>
 
@@ -553,11 +561,11 @@
 
         <!-- Slot 1: Money / Practicality -->
         <div class="field-group">
-          <label class="field-label" style="font-size:11px;">1. The Money / Practicality Check</label>
+          <label class="field-label" style="font-size:11px;">1. Money and Practicality</label>
           <select class="persona-select" id="sel-persona-1" onchange="updatePersonaSlotHeaders(); generateCompiledPrompt();">
             <option value="cfo" selected>The Stingy CFO (Watches every penny, hates costs)</option>
             <option value="single_minded">The Single-Minded Critic (Obsessed with one thing only)</option>
-            <option value="exhausted_operator">The Tired Manager (Already overworked, hates new work)</option>
+            <option value="exhausted_operator">The Tired Manager (Already overworked, hates new chores)</option>
           </select>
         </div>
 
@@ -573,7 +581,7 @@
 
         <!-- Slot 3: Reality / Common Sense -->
         <div class="field-group">
-          <label class="field-label" style="font-size:11px;">3. The Reality / Common Sense Check</label>
+          <label class="field-label" style="font-size:11px;">3. Reality and Common Sense</label>
           <select class="persona-select" id="sel-persona-3" onchange="updatePersonaSlotHeaders(); generateCompiledPrompt();">
             <option value="angry_mum" selected>The Angry Mum (Zero jargon, calls out nonsense immediately)</option>
             <option value="legal">The Paranoid Lawyer (Worried about lawsuits and red tape)</option>
@@ -595,28 +603,26 @@
       <!-- Option 1: Live Gemini Generation -->
       <div class="field-group" style="margin-top: 4px; padding-top: 10px; border-top: 1.5px solid var(--card-border);">
         <label class="field-label" style="display:flex; justify-content:space-between; align-items:center;">
-          <span>ג¡ Option 1: Direct Gemini API (3.8 Flash)</span>
-          <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style="color:var(--benchmark); font-size:11px; text-decoration:none;">Free Key ג†—</a>
+          <span>Option 1: Direct Gemini API (3.8 Flash)</span>
+          <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style="color:var(--primary-blue); font-size:11px; text-decoration:none;">Free Key</a>
         </label>
         <input type="password" class="input-control" id="sidebar-gemini-key" placeholder="Paste Google AI Studio Key (AIza...)" oninput="syncAndSaveKey(this.value)">
       </div>
 
       <button class="btn-generate-ai" id="btn-run-ai" onclick="runDevilAdvocateReview()">
-        <span id="ai-icon">נ”¥</span>
         <span id="ai-text">Run Confrontation Test</span>
       </button>
 
-      <div style="text-align:center; font-size:11px; color:var(--text-muted); font-weight:700; margin: 2px 0;">ג€” OR ג€”</div>
+      <div style="text-align:center; font-size:11px; color:var(--text-muted); font-weight:700; margin: 2px 0;">-- OR --</div>
 
       <!-- Option 2: Copy Prompt for External LLM -->
       <button class="btn-generate-prompt" onclick="togglePromptStudio()">
-        <span>נ“‹</span>
         <span>Option 2: Copy Prompt (No Key Needed)</span>
       </button>
 
       <div class="prompt-preview-container" id="prompt-preview-container">
         <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:11px; font-weight:800; color:var(--benchmark);">Prompt for ChatGPT / Claude:</span>
+          <span style="font-size:11px; font-weight:700; color:var(--primary-blue);">Prompt for ChatGPT / Claude:</span>
           <button class="btn-action" style="padding:3px 8px; font-size:11px; background:#e2e8f0; color:#0f172a;" onclick="copyPromptText(this)">Copy Prompt</button>
         </div>
         <div class="prompt-preview-box" id="prompt-preview-text"></div>
@@ -624,7 +630,7 @@
         <div style="margin-top: 6px;">
           <span style="font-size:11px; font-weight:700; color:var(--text-secondary);">Paste the AI's reply here:</span>
           <textarea class="input-control" id="manual-json-input" placeholder="Paste the raw JSON response here..." style="min-height:55px; font-size:11px; margin-top:4px; font-family:'JetBrains Mono',monospace;"></textarea>
-          <button class="btn-action" style="width:100%; margin-top:6px; justify-content:center; background:var(--accent); color:#fff; border:none;" onclick="loadManualJson()">Load & Show Results</button>
+          <button class="btn-action" style="width:100%; margin-top:6px; justify-content:center; background:var(--primary); color:#fff; border:none;" onclick="loadManualJson()">Load and Show Results</button>
         </div>
       </div>
     </div>
@@ -653,10 +659,10 @@
         <div class="adversary-card slot-1">
           <div class="adversary-header">
             <div class="persona-badge">
-              <span class="persona-icon" id="slot-1-icon">נ“‰</span>
+              <span class="persona-bullet"></span>
               <span class="persona-title" id="slot-1-title">The Stingy CFO</span>
             </div>
-            <span class="adversary-role-tag" id="slot-1-role">MONEY & SPENDING</span>
+            <span class="adversary-role-tag" id="slot-1-role">Money and Spending</span>
           </div>
           <div class="objection-quote" id="slot-1-quote">Waiting for your plan...</div>
           <ul class="vulnerability-list" id="slot-1-bullets">
@@ -668,10 +674,10 @@
         <div class="adversary-card slot-2">
           <div class="adversary-header">
             <div class="persona-badge">
-              <span class="persona-icon" id="slot-2-icon">ג”ן¸</span>
+              <span class="persona-bullet"></span>
               <span class="persona-title" id="slot-2-title">The Cutthroat Rival</span>
             </div>
-            <span class="adversary-role-tag" id="slot-2-role">COMPETITION</span>
+            <span class="adversary-role-tag" id="slot-2-role">Competition</span>
           </div>
           <div class="objection-quote" id="slot-2-quote">Waiting for your plan...</div>
           <ul class="vulnerability-list" id="slot-2-bullets">
@@ -683,10 +689,10 @@
         <div class="adversary-card slot-3">
           <div class="adversary-header">
             <div class="persona-badge">
-              <span class="persona-icon" id="slot-3-icon">נ˜ </span>
+              <span class="persona-bullet"></span>
               <span class="persona-title" id="slot-3-title">The Angry Mum</span>
             </div>
-            <span class="adversary-role-tag" id="slot-3-role">COMMON SENSE</span>
+            <span class="adversary-role-tag" id="slot-3-role">Common Sense</span>
           </div>
           <div class="objection-quote" id="slot-3-quote">Waiting for your plan...</div>
           <ul class="vulnerability-list" id="slot-3-bullets">
@@ -698,10 +704,10 @@
         <div class="adversary-card slot-4">
           <div class="adversary-header">
             <div class="persona-badge">
-              <span class="persona-icon" id="slot-4-icon">ג±ן¸</span>
+              <span class="persona-bullet"></span>
               <span class="persona-title" id="slot-4-title">The Impatient Buyer</span>
             </div>
-            <span class="adversary-role-tag" id="slot-4-role">REAL USERS</span>
+            <span class="adversary-role-tag" id="slot-4-role">Real Users</span>
           </div>
           <div class="objection-quote" id="slot-4-quote">Waiting for your plan...</div>
           <ul class="vulnerability-list" id="slot-4-bullets">
@@ -718,7 +724,7 @@
           <thead>
             <tr>
               <th style="width: 22%;">Who Said It</th>
-              <th style="width: 38%;">The Hardest Question They'll Ask</th>
+              <th style="width: 38%;">The Hardest Question They Will Ask</th>
               <th style="width: 40%;">What to Say Back (Practical Answer)</th>
             </tr>
           </thead>
@@ -736,80 +742,67 @@
   </div>
 
   <script>
-    // 12 Plain-English Personas
     const PERSONA_CONFIG = {
       cfo: { 
         name: "The Stingy CFO", 
-        icon: "נ“‰", 
-        role: "Money & Spending", 
-        desc: "Hates spending cash. Thinks your numbers are make-believe and that you'll run out of money before making a profit." 
+        role: "Money and Spending", 
+        desc: "Hates spending cash. Thinks your numbers are make-believe and that you will run out of money before making a profit." 
       },
       single_minded: { 
         name: "The Single-Minded Critic", 
-        icon: "נ¯", 
         role: "Tunnel-Vision", 
         desc: "Does not care about your whole story; fixates entirely on one single issue or flaw and will not let it go." 
       },
       exhausted_operator: { 
         name: "The Tired Manager", 
-        icon: "נ¥±", 
-        role: "Workload & Hassle", 
+        role: "Workload and Hassle", 
         desc: "Their team is already drowning in work. Hates any new tool, project, or process that creates more meetings and extra chores." 
       },
 
       competitor: { 
         name: "The Cutthroat Rival", 
-        icon: "ג”ן¸", 
         role: "Direct Competitor", 
         desc: "Has more salespeople and existing customers. Will happily copy your best feature or cut prices to keep clients from leaving." 
       },
       ruthless_copycat: { 
         name: "The Fast Copycat", 
-        icon: "נ–¨ן¸", 
         role: "Cheap Cloner", 
-        desc: "Won't invent anything. Just waits for you to prove people want it, then builds a cheap knockoff in 3 weeks and sells it at half price." 
+        desc: "Will not invent anything. Just waits for you to prove people want it, then builds a cheap knockoff in 3 weeks and sells it at half price." 
       },
       incumbent_monopoly: { 
         name: "The Big Giant", 
-        icon: "נ°", 
         role: "Massive Company", 
-        desc: "Huge incumbent with infinite budget. Why would anyone pay for your standalone tool when the giant gives a 'good enough' version away for free in their bundle?" 
+        desc: "Huge incumbent with infinite budget. Why would anyone pay for your standalone tool when the giant gives a good enough version away for free in their bundle?" 
       },
 
       angry_mum: { 
         name: "The Angry Mum", 
-        icon: "נ˜ ", 
         role: "Common Sense", 
-        desc: "Hates business buzzwords, tech jargon, and fancy talk. If you can't explain why a normal person needs this in 10 seconds, she calls it useless nonsense." 
+        desc: "Hates business buzzwords, tech jargon, and fancy talk. If you cannot explain why a normal person needs this in 10 seconds, she calls it useless nonsense." 
       },
       legal: { 
         name: "The Paranoid Lawyer", 
-        icon: "ג–ן¸", 
-        role: "Rules & Safety", 
+        role: "Rules and Safety", 
         desc: "Terrified of getting sued, leaking data, breaking regulations, or getting stuck in messy contract disputes." 
       },
       public_cynic: { 
         name: "The Skeptical Reporter", 
-        icon: "נ“°", 
         role: "Calling Out Hype", 
         desc: "Assumes everyone is exaggerating. Looks for hollow promises, fake claims, and things that will embarrass you publicly if called out." 
       },
 
       impatient_customer: { 
         name: "The Impatient Buyer", 
-        icon: "ג±ן¸", 
         role: "Short Attention Span", 
-        desc: "Has zero patience. If it takes 20 minutes to set up, has a confusing menu, or doesn't solve their headache immediately, they close the tab and never come back." 
+        desc: "Has zero patience. If it takes 20 minutes to set up, has a confusing menu, or does not solve their headache immediately, they close the tab and never come back." 
       },
       tech_purist: { 
         name: "The Simple Tool Fan", 
-        icon: "נ§©", 
         role: "Hates Bloat", 
         desc: "Loves simple, clean things. Hates unnecessary steps, bloated software, too many buttons, and solutions looking for a problem." 
       },
       burned_buyer: { 
         name: "The Burned Customer", 
-        icon: "נ’¸", 
         role: "Skeptical Buyer", 
         desc: "Has bought tools before that promised the world and delivered nothing. Does not believe sales pitches and demands proof before paying a dime." 
       }
@@ -848,7 +841,6 @@
         const val = document.getElementById(`sel-persona-${i}`).value;
         const cfg = PERSONA_CONFIG[val];
         if (cfg) {
-          document.getElementById(`slot-${i}-icon`).innerText = cfg.icon;
           document.getElementById(`slot-${i}-title`).innerText = cfg.name;
           document.getElementById(`slot-${i}-role`).innerText = cfg.role;
         }
@@ -859,7 +851,7 @@
       document.getElementById('ctrl-title').value = "";
       document.getElementById('ctrl-proposal').value = "";
       document.getElementById('disp-score').innerText = "--%";
-      document.getElementById('disp-score').style.color = "var(--accent)";
+      document.getElementById('disp-score').style.color = "var(--primary-blue)";
       document.getElementById('disp-verdict-tag').innerText = "Confrontation Survival Chance";
       document.getElementById('disp-verdict').innerText = "Enter your idea on the left and run the test. The 4 adversaries will tell you straight where your idea will get knocked down.";
 
@@ -882,10 +874,10 @@
     function renderBoard() {
       if (typeof analysis.score === 'number') {
         document.getElementById('disp-score').innerText = `${analysis.score}%`;
-        document.getElementById('disp-score').style.color = analysis.score >= 70 ? 'var(--gemini)' : (analysis.score >= 50 ? 'var(--warning)' : 'var(--accent)');
+        document.getElementById('disp-score').style.color = analysis.score >= 70 ? '#16a34a' : (analysis.score >= 50 ? '#d97706' : '#2563eb');
       } else {
         document.getElementById('disp-score').innerText = "--%";
-        document.getElementById('disp-score').style.color = "var(--accent)";
+        document.getElementById('disp-score').style.color = "var(--primary-blue)";
       }
 
       document.getElementById('disp-verdict-tag').innerText = analysis.verdict_tag || "Confrontation Summary";
@@ -905,7 +897,7 @@
       if (analysis.fortification && analysis.fortification.length > 0) {
         tbody.innerHTML = analysis.fortification.map(row => `
           <tr>
-            <td><strong style="color:var(--accent);">${row.persona}</strong></td>
+            <td><strong style="color:var(--primary);">${row.persona}</strong></td>
             <td>${row.objection}</td>
             <td style="color:#0f172a; font-weight:600;">${row.defense}</td>
           </tr>
@@ -913,7 +905,6 @@
       }
     }
 
-    // Human, Non-Jargon Prompt Engine
     function generateCompiledPrompt() {
       const title = document.getElementById('ctrl-title').value.trim() || "New Project Idea";
       const stakeholder = document.getElementById('ctrl-stakeholder').selectedOptions[0].text;
@@ -1004,8 +995,8 @@ SCHEMA:
       const text = document.getElementById('prompt-preview-text').innerText;
       navigator.clipboard.writeText(text).then(() => {
         const orig = btn.innerText;
-        btn.innerText = "Copied! ג“";
-        btn.style.color = "var(--accent)";
+        btn.innerText = "Copied!";
+        btn.style.color = "var(--primary-blue)";
         setTimeout(() => {
           btn.innerText = orig;
           btn.style.color = "";
@@ -1013,23 +1004,20 @@ SCHEMA:
       });
     }
 
-    // Option 1: Live Gemini 3.8 Flash Generation
     async function runDevilAdvocateReview() {
       const apiKey = getApiKey();
       if (!apiKey) {
-        alert("Please paste your Gemini API key first, or use 'Option 2: Copy Prompt' to run it in ChatGPT/Claude for free.");
+        alert("Please paste your Gemini API key first, or use Option 2: Copy Prompt to run it in ChatGPT or Claude for free.");
         document.getElementById('sidebar-gemini-key')?.focus();
         return;
       }
 
       const promptText = generateCompiledPrompt();
       const btn = document.getElementById('btn-run-ai');
-      const icon = document.getElementById('ai-icon');
       const text = document.getElementById('ai-text');
 
       btn.disabled = true;
-      icon.innerText = "ג³";
-      text.innerText = "Running the numbers & objections...";
+      text.innerText = "Running the numbers and objections...";
 
       try {
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${apiKey}`, {
@@ -1060,12 +1048,10 @@ SCHEMA:
         alert(`Could not connect: ${err.message}`);
       } finally {
         btn.disabled = false;
-        icon.innerText = "נ”¥";
         text.innerText = "Run Confrontation Test";
       }
     }
 
-    // Option 2: Manual JSON Import Handler
     function loadManualJson() {
       const raw = document.getElementById('manual-json-input').value.trim();
       if (!raw) {
@@ -1084,7 +1070,7 @@ SCHEMA:
           alert("The pasted text is missing some answers.");
         }
       } catch (e) {
-        alert("Couldn't read that format. Make sure you only copied the JSON response.");
+        alert("Could not read that format. Make sure you only copied the JSON response.");
       }
     }
 
@@ -1097,13 +1083,13 @@ SCHEMA:
           <title>${title} - Confrontation Answers</title>
           <style>
             body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fafc; color: #0f172a; padding: 40px; }
-            h1 { color: #dc2626; margin-bottom: 4px; }
+            h1 { color: #1e3a8a; margin-bottom: 4px; }
             h2 { color: #475569; font-size: 18px; margin-bottom: 24px; }
-            .box { background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
+            .box { background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
             table { width: 100%; border-collapse: collapse; margin-top: 16px; }
             th, td { padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; }
-            th { color: #0284c7; background: #f1f5f9; font-size: 12px; }
-            .score { font-size: 24px; font-weight: 800; color: #dc2626; margin-bottom: 8px; }
+            th { color: #1e3a8a; background: #f1f5f9; font-size: 12px; }
+            .score { font-size: 24px; font-weight: 800; color: #2563eb; margin-bottom: 8px; }
           </style>
         </head>
         <body>
@@ -1126,7 +1112,7 @@ SCHEMA:
               <tbody>
                 ${(analysis.fortification || []).map(r => `
                   <tr>
-                    <td><strong style="color:#dc2626;">${r.persona}</strong></td>
+                    <td><strong style="color:#1e3a8a;">${r.persona}</strong></td>
                     <td>${r.objection}</td>
                     <td><strong>${r.defense}</strong></td>
                   </tr>
@@ -1144,7 +1130,6 @@ SCHEMA:
       link.click();
     }
 
-    // Startup
     window.onload = function() {
       const savedKey = localStorage.getItem('3sci_gemini_key') || '';
       if (savedKey) {
